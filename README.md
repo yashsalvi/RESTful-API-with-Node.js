@@ -1,4 +1,4 @@
-# SmartStopApp-Backend
+# RESTful API with Node.js
 
 
 ## Table of contents
