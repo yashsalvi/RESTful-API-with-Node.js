@@ -9,7 +9,7 @@
 
 ## Description
 A Basic RESTful API created using Node.js ,MongoDb and Express.
-Also,with proper JWT Route Protection and Mongoose validation.
+With proper JWT Route Protection and Mongoose validation.
 
 	
 ## Technologies
