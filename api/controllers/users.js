@@ -9,7 +9,7 @@ exports.user_Signup=(req,res,next)=>{
     User.find({email:req.body.email})
     .exec()
     .then(user=>{
-        if(user.length >= 1){                       // it measn we already have that email address
+        if(user.length >= 1){                      
         return res.status(409).json({  
         message:'Email already exist!'
          })
@@ -57,26 +57,26 @@ exports.user_Signup=(req,res,next)=>{
             bcrypt.compare(req.body.password,user[0].password,(err,result)=>{
                 if(err){
                     return res.status(401).json({
-                    message:"Auth failed"                            // in general bcrypt cmpare fails
+                    message:"Auth failed"                            
                     })
                 }
                 if(result){
                   const token=  jwt.sign({
-                        email:user[0].email,               // payload or we could say data
+                        email:user[0].email,               
                         userId:user[0]._id
                     },
                     process.env.JWT_KEY,
                     {
-                        expiresIn:"1h"                  // various options
+                        expiresIn:"1h"                 
                     }
-                    );                                   // add callback or just assign it to a token const as i have done here.
+                    );                                   
                     return res.status(200).json({
                         message:"Auth successful",
                         token:token
                     })       
                 }
                 res.status(401).json({
-                    message:"Auth failed"                     // password was incorrect
+                    message:"Auth failed"                    
                 })
             })
         })
@@ -85,7 +85,7 @@ exports.user_Signup=(req,res,next)=>{
 
 
     exports.user_Delete =(req,res,next)=>{
-        User.remove({_id:req.params.userId})                            // It measn the _id(databse id) = the entered id in the url or not
+        User.remove({_id:req.params.userId})                            
              .exec()
              .then(result=>{
                 res.status(200).json({
