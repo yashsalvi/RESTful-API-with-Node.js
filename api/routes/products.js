@@ -17,32 +17,26 @@ const storage= multer.diskStorage({
 
 const fileFilter=(req,res,cb)=>{
     if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
-    cb(null,true);                                                         // it means u will stroe that file if it is either of the two.
+    cb(null,true);                                                       
     }else{
-    cb(null,false);                                                              // it means u wont stroe that file
-    }
+    cb(null,false);                                                            
 }
 
 const upload=multer({
     storage:storage,
     limits:{filesize:1024*1024*5},
     fileFlter:fileFilter
-});                                                               // "/" infornt means it turns it into absolute path and try to create it in root node modules folder. So,instead we reomve it and make it relative path.
-
+});                                                            
 
 router.get('/',ProductsController.get_all_products_);
 
 router.post('/',CheckAuth ,upload.single('productImage'),ProductsController.Create_product);
 
-
 router.get('/:productId',CheckAuth ,ProductsController.get_productById );
-
 
 router.patch('/:pId', CheckAuth ,ProductsController.Update_Product_byId );
 
-
 router.delete('/:productId', CheckAuth,ProductsController.Delete_product);
-
 
 
 module.exports = router;
