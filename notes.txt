@@ -1,0 +1,78 @@
+1. We need to put it under the control of npm.(i.e the empty folder)
+--save to store an entry in package.json
+body-parser to parse the incoming request.
+
+BODY IN POSTMAN IS PAYLOAD WHICH IS USED TO CREATE A CERTAIN OBJECT.(just an example)
+
+in server.js i will setup all the code spin up the server.
+const http = require('http'); import syntax in node.js
+server.listen to start the server.
+app.js is used to hadle the request a bit easier.
+app.use() sets up a middleware
+
+IN app.js mostly u iport each route by require.
+how to setup the rroute.
+i have to setup the express router
+Router is a subpackage of express . This express ships with.
+now u can use that router to register different routes.
+
+module.exports = router;
+means that so that the router with the routes we configured and is exported and can be used in other files. such as app.js
+
+
+we forward all request ot /products  to our products routing file here.
+we need to forward the request ot file (i.e app.js)
+
+we dont need to return for a single line of code becaus ewe dont have any further code in it.
+
+status code: 201 used for post where it means everything was susccesssful ,resource created.
+
+nodemon so that whenever we make changes we dont need to restart the server.
+
+morgan is logging package for nod.js
+morgan basicalyy is the one who will call the next function behind the scene.
+saying i dont return a respone and is did something in thiscase which is logging.
+
+
+Error handling:
+error thrown from naywhere in the application is then handle at last.
+
+method is a property which gives access to http method used on  the access.
+
+because browser always send the options request. to check whether he is allowed to or not.
+so that all the error canbe appende to the incoming request.
+
+For other methods only first two headers are attached. then it goes on to the routes.
+
+in app.js the connection setup takes place.
+
+
+Mogodb:
+
+
+1.new instance of that model.
+save() is the method provided by mongoose which we can use on models. and then store it in databse.
+use .exec to chain it and make it a promise.
+callback funtion(err,result) instead use promise.
+FIND() it finds all the elemnts present in the databse.
+
+
+
+
+Postman#####
+on json body you can also pass an array and inside it a javascript object with key value pair.
+example:
+propName:"name"  here name is the property which we awant to update. and value poperty which hold the value you wanna updatae.
+
+
+.select() method use to fetch the data u want to fetch and not all the data.
+defaultquants will be stored in the database.
+
+Populate queries with the help of populate() here u pass the name of refernce property not the model name.
+
+
+In normal node app you dont return session but in RESTFUL service it cant be a session.
+They don not store any  information about the connected clients.
+this token can be stored by our client  and can be used to attach to future request.
+ 
+jwt verify makiing sure that the client can identify himself to our server and access the protected resources.
