@@ -34,8 +34,8 @@ exports.orders_get_all= (req,res,next) =>{
 exports.orders_Create_order =(req,res,next) =>{
     Product.findById(req.body.productId)
     .then(product=>{
-        if(!product){                                                 //if not product(i.e nullish)
-            return res.status(404).json({                            // since i written the subsequent code will not be executed.
+        if(!product){                                                 
+            return res.status(404).json({                            
             message:"Product not found"
             })
         }
@@ -69,7 +69,7 @@ exports.orders_Create_order =(req,res,next) =>{
 
 exports.Find_order_ById  =(req,res,next) =>{
     Order.findById(req.params.orderId)     
-    .populate('product')                                                                         // orderId because in url in above line we have set it the same.
+    .populate('product')                                                                         
     .exec()
     .then(order=>{
         if(!order){
