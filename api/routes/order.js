@@ -4,7 +4,7 @@ const CheckAuth = require('../middleware/check-auth');
 const OrdersController=require('../controllers/orders')
 
 
-router.get('/',CheckAuth ,OrdersController.orders_get_all);                                                    // it tells express that you need to execute this function(i.e orders_get_All) whenevr we reciev incoming request here.
+router.get('/',CheckAuth ,OrdersController.orders_get_all);       
 
 router.post('/',CheckAuth,OrdersController.orders_Create_order)
 
