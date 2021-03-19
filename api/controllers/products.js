@@ -9,7 +9,7 @@ exports.get_all_products_= (req,res,next)=>{
     .then(results=>{
         const response ={ 
             count:results.length,
-            products:results.map(a_result=>{                //.map()is used to map it(Results) into a new array
+            products:results.map(a_result=>{                
                 return{
                     name:a_result.name,
                     price:a_result.price,
@@ -97,11 +97,11 @@ exports.get_all_products_= (req,res,next)=>{
 
  exports.Update_Product_byId =(req,res,next)=>{ 
     const id =req.params.pId;
-    const updateOps={}                                 //2.so here i expect my req.body to be an array here.
-    for(const ops of req.body){                   //1. Here, I will loop through all the operations of req.body
-        updateOps[ops.propName]=ops.value;                                      //name:req.body.newName it is possible
+    const updateOps={}                                
+    for(const ops of req.body){                   
+        updateOps[ops.propName]=ops.value;                                      
     }
-     Product.updateOne({_id: id},{$set:updateOps}).exec().                    //{{_id:id}} checks whether the id matches the url id or not.
+     Product.updateOne({_id: id},{$set:updateOps}).exec().                    
      then(result=>{
   
      res.status(200).json({
